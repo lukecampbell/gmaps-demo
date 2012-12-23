@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Interface</title>
+        <link rel="stylesheet" type="text/css" href="/template.css" />
+        <script type="text/javascript" 
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCniEDXVTLzIUDgf19-Luone2Xvfs2PvY&sensor=true">
+        </script>
+        <script type="text/javascript">
+            function initialize() {
+                var myLatLng = new google.maps.LatLng(41.45678, -71.47037);
+                var mapOptions = {
+                  zoom: 16,
+                  center: myLatLng,
+                  mapTypeId: google.maps.MapTypeId.SATELLITE
+                }
+
+                var map = new google.maps.Map(document.getElementById("mapCanvas"), mapOptions);
+
+                var ctaLayer = new google.maps.KmlLayer('https://raw.github.com/gist/4122193/5959716caca402c198a1cba0c40034500d7c4e86/work.kml');
+                ctaLayer.setMap(map);
+            };
+        </script>
+
+    </head>
+
+    <body onload="initialize()">
+        <div id="headerBg">
+            <span class="headerMenuItem">
+                <a href="/gmap.html">HOME</a>
+            </span>
+            <span class="headerMenuItem">
+                <a href="/gmap.html">TOOLS</a>
+            </span>
+            <span class="headerMenuItem">
+                <a href="/gmap.html">LOGIN</a>
+            </span>
+        </div>
+        <div id="canvas">
+            <div id="navigation">
+            </div>
+            <div id="mapCanvas">
+            </div>
+        </div>
+    </body>
+</html>
